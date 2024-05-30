@@ -1,9 +1,16 @@
 {
-    "version": 2,
-    "rewrites": [
+    "builds": [
         {
-            "source": "/(.*)",
-            "destination": "/"
+            "src": "*.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "*.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "*.js",
+            "use": "@vercel/node"
         }
     ]
 }
