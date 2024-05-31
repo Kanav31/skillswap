@@ -5,11 +5,9 @@ import { useLocation } from 'react-router-dom';
 import './userinfo.css'
 import Multiselect from 'multiselect-react-dropdown';
 import skillswapimg from './images/skillswapimg.png'
-import group12 from './images/group-12.svg'
-import camera from './images/camera.svg'
-import rectangle from './images/rectangle-11@2x.png'
+import group12 from './images/group-12.jpg'
 import rectanglebg from './images/rectanglebg.jpg'
-import group13 from './images/group-13.svg'
+import group13 from './images/group-13.jpg'
 import { useNavigate } from "react-router-dom";
 import Navbar from './navigation/NavigationBar';
 import convertToBase64 from './helper/convert';

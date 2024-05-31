@@ -1,8 +1,7 @@
 import React from "react"
 import './landing.css'
 import { useNavigate } from "react-router-dom";
-// import skillswapimg from './images/skillswapimg.png'
-// import circles from './images/illustration.svg'
+
 
 
 function Landing(){
@@ -44,7 +43,7 @@ function Landing(){
           </div>
           <div class="dialog">
             <div class="monster">
-              <img class="monster-avatar" src="img/monster-avatar.svg" />
+              <img class="monster-avatar" src="img/monster-avatar.jpg" />
               <div class="message-monster">
                 <p class="p">Charming Venusian is looking for a worthy companion to learn backend engineering</p>
               </div>
@@ -208,21 +207,21 @@ function Landing(){
             <div class="frame-12">
               <div class="frame-13"></div>
               <div class="frame-14">
-                <img class="copyright" src="img/copyright.svg" />
+                {/* <img class="copyright" src="img/copyright.svg" /> */}
                 <p class="text-wrapper-34">2023 SkillSwap All rights reserved</p>
               </div>
               <div class="frame-15">
                 <div class="frame-16"><div class="text-wrapper-35">Home</div></div>
-                <img class="line" src="img/line-15.svg" />
+                <img class="line" src="img/line-15.jpg" />
                 <div class="frame-16"><div class="text-wrapper-35">Customer care</div></div>
-                <img class="line" src="img/line-15.svg" />
+                <img class="line" src="img/line-15.jpg" />
                 <div class="frame-16"><div class="text-wrapper-35">Pages</div></div>
               </div>
               <div class="frame-17">
-                <img class="img-2" src="img/facebook.svg" />
+                {/* <img class="img-2" src="img/facebook.svg" />
                 <img class="img-2" src="img/twitter.svg" />
                 <img class="img-2" src="img/instagram.svg" />
-                <img class="img-2" src="img/linkedin.svg" />
+                <img class="img-2" src="img/linkedin.svg" /> */}
               </div>
             </div>
           </div>
@@ -261,7 +260,7 @@ function Landing(){
                 </div>
               </div>
             </div>
-            <img class="illustration" src="img/illustration.svg" />
+            <img class="illustration" src="img/illustration.jpg" />
           </div>
         </div>
       </div>

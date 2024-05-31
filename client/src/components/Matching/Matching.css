@@ -299,7 +299,7 @@ a {
   width: 120px;
   height: 41px;
   left: -4px;
-  background-image: url(./img/emailspace.svg);
+  background-image: url(./img/emailspace.jpg);
   background-size: 100% 100%;
 }
 
@@ -346,7 +346,7 @@ a {
   height: 38px;
   top: 0;
   left: -5px;
-  background-image: url(./img/websitespace.svg);
+  background-image: url(./img/websitespace.jpg);
   background-size: 100% 100%;
 }
 
@@ -399,7 +399,7 @@ a {
   width: 120px;
   height: 41px;
   left: -4px;
-  background-image: url(./img/phonenumberspace.svg);
+  background-image: url(./img/phonenumberspace.jpg);
   background-size: 100% 100%;
 }
 
@@ -455,7 +455,7 @@ a {
   width: 56px;
   height: 54px;
   left: -4px;
-  background-image: url(./img/skillsspace-2.svg);
+  background-image: url(./img/skillsspace-2.jpg);
   background-size: 100% 100%;
 }
 
@@ -500,7 +500,7 @@ a {
   height: 141px;
   top: 9px;
   left: 15px;
-  background-image: url(./img/skillsspace-1.svg);
+  background-image: url(./img/skillsspace-1.jpg);
   background-size: 100% 100%;
 }
 
@@ -594,7 +594,7 @@ a {
   height: 141px;
   top: 9px;
   left: 15px;
-  background-image: url(./img/skillsspace.svg);
+  background-image: url(./img/skillsspace.jpg);
   background-size: 100% 100%;
 }
 

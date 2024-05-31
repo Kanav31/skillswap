@@ -1,23 +1,21 @@
 import React from 'react'
 import './dashboard.css'
-import frame from "./img/frame-4.svg"
-import frame1 from "./img/frame-4-1.svg"
-import home3 from "./img/home-3.svg"
-import home2 from "./img/home-2.svg"
-import home from "./img/home.svg"
+import frame from "./img/frame-4.jpg"
+import frame1 from "./img/frame-4-1.jpg"
+import home3 from "./img/home-3.jpg"
+import home2 from "./img/home-2.jpg"
+import home from "./img/home.jpg"
 import image11 from "./img/image-11.png"
 import image10 from "./img/image-10.png"
 import data from "./img/3d-data-management-2.png"
 import grad from "./img/grad-01.png"
 import cloud from "./img/3d-object-cloud-storage-1-1.png"
-import folder from "./img/folder.svg"
-// import time from "./img/time-square.svg"
-import vector1 from "./img/vector-1.svg"
+import folder from "./img/folder.jpg"
+import vector1 from "./img/vector-1.jpg"
 import object from "./img/object.png"
 import rectangle5 from "./img/rectangle-5.png"
 import rectangle6 from "./img/rectangle-6.png"
 import rectangle7 from "./img/rectangle-7.png"
-// import paper from "./img/paper.png"
 import { useNavigate } from "react-router-dom";
 import Navbar from '../navigation/NavigationBar'
 
@@ -159,127 +157,3 @@ export default Dashboard;
 
 
 
-
-// <!-- <!DOCTYPE html>
-// <html>
-//   <head>
-//     <link rel="stylesheet" href="dashboard.css" />
-    
-//   </head>
-//   <body>
-//     <div class="desktop">
-//       <div class="div">
-//         <div class="overlap">
-//           <div class="frame">
-//             <div class="frame-2">
-//               <img class="img" src="img/frame-4.svg" />
-//               <div class="text-wrapper">Settings</div>
-//             </div>
-//             <div class="frame-2">
-//               <img class="img" src="img/frame-4-1.svg" />
-//               <div class="text-wrapper">Profile</div>
-//             </div>
-//           </div>
-//           <div class="frame-3">
-//             <div class="frame-4">
-//               <div class="frame-5">
-//                 <img class="home" src="img/home-3.svg" />
-//                 <div class="text-wrapper-2">Home</div>
-//               </div>
-//               <div class="frame-5">
-//                 <img class="home" src="img/home-2.svg" />
-//                 <div class="text-wrapper-2">Connections</div>
-//               </div>
-//             </div>
-//             <div class="frame-4">
-//               <div class="frame-5">
-//                 <img class="home" src="img/home.svg" />
-//                 <div class="text-wrapper-2">Invites</div>
-//               </div>
-//               <div class="frame-6">
-//                 <img class="home" src="img/home.svg" />
-//                 <div class="text-wrapper-3">Requests sent</div>
-//                 <div class="group">
-//                   <div class="rectangle"></div>
-//                   <div class="text-wrapper-4">New</div>
-//                 </div>
-//               </div>
-//             </div>
-//             <div class="frame-4">
-//               <div class="frame-5">
-//                 <div class="frame-wrapper">
-//                   <div class="image-wrapper"><img class="image" src="img/image-11.png" /></div>
-//                 </div>
-//                 <div class="text-wrapper-5">Doubts</div>
-//               </div>
-//               <div class="frame-7">
-//                 <div class="img-wrapper"><img class="image-2" src="img/image-10.png" /></div>
-//                 <div class="text-wrapper-6">Messages</div>
-//               </div>
-//             </div>
-//             <div class="group-2">
-//               <div class="rectangle"></div>
-//               <div class="text-wrapper-4">New</div>
-//             </div>
-//           </div>
-//           <div class="div-wrapper">
-//             <div class="frame-8">
-//               <div class="frame-9"><div class="text-wrapper-7">Get Started ✨</div></div>
-//               <div class="frame-10"><div class="text-wrapper-8">See possible matches</div></div>
-//               <img class="element-data-management" src="img/3d-data-management-2.png" />
-//             </div>
-//           </div>
-//         </div>
-//         <div class="overlap-group-wrapper">
-//           <div class="overlap-group">
-//             <div class="frame-11">
-//               <img class="grad" src="img/grad-01.png" />
-//               <div class="text-wrapper-9">Why SkillSwap?</div>
-//               <p class="p">
-//                 Discover a community where expertise converges, paving the way for skill exchange and personal growth.
-//                 Join us to connect, share knowledge, and forge meaningful collaborations. Explore a platform tailored to
-//                 elevate your skills and passions to new heights.
-//               </p>
-//             </div>
-//             <img class="element-object-cloud" src="img/3d-object-cloud-storage-1-1.png" />
-//           </div>
-//         </div>
-//         <div class="frame-12">
-//           <img class="img-2" src="img/folder.svg" />
-//           <div class="text-wrapper-10">To-do lists</div>
-//         </div>
-//         <div class="frame-13">
-//           <img class="img-2" src="img/time-square.svg" />
-//           <div class="text-wrapper-10">Upcoming work</div>
-//         </div>
-//         <div class="frame-14">
-//           <div class="frame-15">
-//             <div class="overlap-group-2">
-//               <div class="frame-16"><div class="text-wrapper-11">My lists</div></div>
-//               <div class="text-wrapper-12">Open</div>
-//               <div class="text-wrapper-13">....... Files</div>
-//               <div class="overlap-2">
-//                 <img class="vector" src="img/vector-1.svg" /> <img class="object" src="img/object.png" />
-//               </div>
-//               <p class="text-wrapper-14">Last Edit: May 3rd 2023</p>
-//               <div class="text-wrapper-15">Shared With:</div>
-//               <div class="frame-17">
-//                 <img class="rectangle-2" src="img/rectangle-5.png" />
-//                 <img class="rectangle-3" src="img/rectangle-6.png" />
-//                 <img class="rectangle-3" src="img/rectangle-7.png" />
-//                 <div class="frame-18"><div class="text-wrapper-16">+9</div></div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//         <div class="overlap-3">
-//           <img class="paper" src="img/paper.png" />
-//           <div class="text-wrapper-17">Task</div>
-//           <div class="group-wrapper">
-//             <div class="rectangle-wrapper"><div class="rectangle-4"></div></div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </body>
-// </html> -->

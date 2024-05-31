@@ -5,12 +5,10 @@ import './getconfirmedmatches.css'
 import ScrollableChat from "./ScrollableChat";
 // import Lottie from "lottie-react";
 import io from 'socket.io-client'
-import message from "./img/message-more.svg"
-import rect from "./img/rectangle-1092-1.svg"
+import message from "./img/message-more.jpg"
+
 import Navbar from '../navigation/NavigationBar'
 import nochatbg2 from "./nochatbg2.png"
-
-// import animationData from "../animations/typing.json";
 var socket, selectedChatCompare;
 const ENDPOINT = "http://localhost:8000";
 

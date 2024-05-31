@@ -2,11 +2,10 @@ import React from "react";
 import { useEffect,useState } from "react";
 // import { useToken } from "./TokenContext";
 import './Matching.css'
-import arrow from "./img/arrow-left.svg"
-import pfp from "./img/pfp.png"
-import division from "./img/divisionn-1.svg"
-import right from "./img/right.svg"
-import bottom from "./img/bottom.svg"
+import arrow from "./img/arrow-left.jpg"
+import division from "./img/divisionn-1.jpg"
+import right from "./img/right.jpg"
+import bottom from "./img/bottom.jpg"
 import Navbar from '../navigation/NavigationBar'
 
 
@@ -231,82 +230,3 @@ const token = userLogin && userLogin.token ? userLogin.token : null;
 
 export default Allprofiles;
 
-
-
-{/* <div class="card-container">
-<div class="card">
-    <div class="card-heading">Hi! I’m Samantha</div>
-    <div class="small-headings">
-        <div class="small-heading-1">Noida,India</div>
-        <div class="small-heading-2">4.5 ⭐️</div>
-    </div>
-    <div class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-
-    </div>
-    <div class="lower-section">
-        <a class="profile">view full profile</a>
-        <button class="match-btn">Match</button>
-    </div>
-</div>
-<div class="card">
-    <div class="card-heading">Hi! I’m Samantha</div>
-    <div class="small-headings">
-        <div class="small-heading-1">Noida,India</div>
-        <div class="small-heading-2">4.5 ⭐️</div>
-    </div>
-    <div class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-
-    </div>
-    <div class="lower-section">
-        <a class="profile">view full profile</a>
-        <button class="match-btn">Match</button>
-    </div>
-</div>
-<div class="card">
-    <div class="card-heading">Hi! I’m Samantha</div>
-    <div class="small-headings">
-        <div class="small-heading-1">Noida,India</div>
-        <div class="small-heading-2">4.5 ⭐️</div>
-    </div>
-    <div class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-
-    </div>
-    <div class="lower-section">
-        <a class="profile">view full profile</a>
-        <button class="match-btn">Match</button>
-    </div>
-</div>
-<div class="card">
-    <div class="card-heading">Hi! I’m Samantha</div>
-    <div class="small-headings">
-        <div class="small-heading-1">Noida,India</div>
-        <div class="small-heading-2">4.5 ⭐️</div>
-    </div>
-    <div class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-
-    </div>
-    <div class="lower-section">
-        <a class="profile">view full profile</a>
-        <button class="match-btn">Match</button>
-    </div>
-</div>
-<div class="card">
-    <div class="card-heading">Hi! I’m Samantha</div>
-    <div class="small-headings">
-        <div class="small-heading-1">Noida,India</div>
-        <div class="small-heading-2">4.5 ⭐️</div>
-    </div>
-    <div class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-
-    </div>
-    <div class="lower-section">
-        <a class="profile">view full profile</a>
-        <button class="match-btn">Match</button>
-    </div>
-</div>
-</div> */}

@@ -1,13 +1,11 @@
 import React,{useState} from "react"
 import './signup.css'
 import { useNavigate } from "react-router-dom";
-// import NavigationBar from "./navigation";
 import { useToken } from "./TokenContext";
 import skillswapimg from './images/skillswapimg.png'
-import illustration2 from './images/illustration2.svg'
-// import group6 from './images/group-6.svg'
-import mdipasswordoffoutline from './images/mdipasswordoffoutline.svg'
-import icoutlineemail from './images/icoutlineemail.svg'
+import illustration2 from './images/illustration2.jpg'
+import mdipasswordoffoutline from './images/mdipasswordoffoutline.jpg'
+import icoutlineemail from './images/icoutlineemail.jpg'
 
 
 

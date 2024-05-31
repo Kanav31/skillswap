@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
 .question-answer-background{
     background-image: url("./qabg.jpg");
   
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; 
+    background-repeat: no-repeat; 
     background-size: cover;
 }
 
 
 .purple-container{
-    /* background-color: #f0e6f4; */
+    
     width: 80%;
     height: 300px;
     margin: auto;
@@ -98,7 +100,7 @@
     margin-top:50px !important;
     margin: auto;
 }
-@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
 .email-text{
     font-family: inherit;
      font-weight: bold;
@@ -125,7 +127,7 @@
 }
 
 .answer{
-    /* height: 70px; */
+    
     background-color: #ebebeb;
     border-radius: 6px;
     box-shadow: 0px 2px 4.6px #00000042;
@@ -157,7 +159,7 @@
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
-    /* margin-top: 50px; */
+  
 }
 
 .post-btn-2{
@@ -182,13 +184,7 @@
     white-space: nowrap;
 }
 
-/* .expandable {
-  
-  
-    transition: all .5s ease-in-out;
-    
-   } */
-   .viewresponse_btn{
+.viewresponse_btn{
     background: transparent;
     padding: 0;
     text-decoration: underline;
