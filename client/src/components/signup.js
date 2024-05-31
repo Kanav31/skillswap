@@ -33,7 +33,7 @@ function Signup() {
     console.log('Form data:', signformData);
 
     // Add further login logic here
-    fetch("http://localhost:8000/api/v1/auth/register", {
+    fetch("https://skillswap-sable.vercel.app/api/v1/auth/register", {
       method: "POST",
       crossDomain: true,
       headers: {

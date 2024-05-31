@@ -38,7 +38,7 @@ function Todolist() {
     try {
       // Make an HTTP GET request to your server
       const response = await fetch(
-        "http://localhost:8000/api/v1/chat-request/getAllAcceptedRequest",
+        "https://skillswap-sable.vercel.app/api/v1/chat-request/getAllAcceptedRequest",
         {
           method: "GET",
           headers: {
@@ -97,7 +97,7 @@ function Todolist() {
     console.log(tasks);
     try {
       const response = await fetch(
-        `http://localhost:8000/api/v1/tasklist-related/task-lists/${selectedUserId}`,
+        `https://skillswap-sable.vercel.app/api/v1/tasklist-related/task-lists/${selectedUserId}`,
         {
           method: "POST",
           headers: {
@@ -163,7 +163,7 @@ function Todolist() {
       setbutton("get");
       try {
         const response = await fetch(
-          `http://localhost:8000/api/v1/tasklist-related/task-lists/matched-user/${selectedUserId}`,
+          `https://skillswap-sable.vercel.app/api/v1/tasklist-related/task-lists/matched-user/${selectedUserId}`,
           {
             method: "GET",
             headers: {
@@ -196,7 +196,7 @@ function Todolist() {
       try {
         // Update the server to mark the task as complete
         const response = await fetch(
-          `http://localhost:8000/api/v1/tasklist-related/task-lists/complete-task/${taskId}`,
+          `https://skillswap-sable.vercel.app/api/v1/tasklist-related/task-lists/complete-task/${taskId}`,
           {
             method: "PUT",
             headers: {
@@ -213,7 +213,7 @@ function Todolist() {
 
         // Fetch the updated task list from the server
         const updatedTaskListResponse = await fetch(
-          `http://localhost:8000/api/v1/tasklist-related/task-lists/matched-user/${selectedUserId}`,
+          `https://skillswap-sable.vercel.app/api/v1/tasklist-related/task-lists/matched-user/${selectedUserId}`,
           {
             method: "GET",
             headers: {
@@ -238,82 +238,82 @@ function Todolist() {
   return (
     <div>
 
-    <Navbar/>
-    <div className="todobgdesign">
-      <div class="todo-screen">
-        <div class="connections">
-          <h1 class="connection-heading">CONNECTIONS</h1>
+      <Navbar />
+      <div className="todobgdesign">
+        <div class="todo-screen">
+          <div class="connections">
+            <h1 class="connection-heading">CONNECTIONS</h1>
 
-          {confirmedMatches.map((match) => (
-            <div class="info" key={match._id}>
-              <img  className="todo-img" src={match.receiver.userProfile.pic} />
-              <div>
-                <p class="todo-name">
-                  {loggedinusername === match.sender.name
-                    ? match.receiver.name
-                    : match.sender.name}
-                </p>
-                {/* <p class="todo-username">@ishitaaa</p> */}
+            {confirmedMatches.map((match) => (
+              <div class="info" key={match._id}>
+                <img className="todo-img" src={match.receiver.userProfile.pic} />
+                <div>
+                  <p class="todo-name">
+                    {loggedinusername === match.sender.name
+                      ? match.receiver.name
+                      : match.sender.name}
+                  </p>
+                  {/* <p class="todo-username">@ishitaaa</p> */}
+                </div>
+                <div class="todo-button">
+                  <button
+                    class="button-list"
+                    onClick={() =>
+                      handleID(match.sender._id, match.receiver._id, "makeTodo")
+                    }
+                  >
+                    <span>Create list </span>
+                  </button>
+                  <button
+                    class="button-list"
+                    onClick={() =>
+                      handleID(match.sender._id, match.receiver._id, "getTodo")
+                    }
+                  >
+                    <span>View list </span>
+                  </button>
+                </div>
               </div>
-              <div class="todo-button">
-                <button
-                  class="button-list"
-                  onClick={() =>
-                    handleID(match.sender._id, match.receiver._id, "makeTodo")
-                  }
-                >
-                  <span>Create list </span>
-                </button>
-                <button
-                  class="button-list"
-                  onClick={() =>
-                    handleID(match.sender._id, match.receiver._id, "getTodo")
-                  }
-                >
-                  <span>View list </span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        {selectedbutton !== "make" && selectedbutton !== "get" && (
-          <div className="all-gifs">
-            {/* <img className="gif1" src={gif1} />
+            ))}
+          </div>
+          {selectedbutton !== "make" && selectedbutton !== "get" && (
+            <div className="all-gifs">
+              {/* <img className="gif1" src={gif1} />
           // <p  className="giftext">loremasdasdasoidu oaisudoiasudoas duoasudoaisdu aoisudioiasudoaisudaisd aoiuioasduoiasud oaiuooiausdo</p>
           <img className="gif2" src={gif2} /> */}
-            <h1>SWAP TASKS, AMPLIFY PRODUCTIVITY</h1>
-            <h3>
-            Your personalized to-do list, crafted by a fellow SkillSwapper, awaits. Click, conquer, and enjoy!
-            </h3>
-            <img className="todo-picture" src={mytodobg} />
-          </div>
-        )}
+              <h1>SWAP TASKS, AMPLIFY PRODUCTIVITY</h1>
+              <h3>
+                Your personalized to-do list, crafted by a fellow SkillSwapper, awaits. Click, conquer, and enjoy!
+              </h3>
+              <img className="todo-picture" src={mytodobg} />
+            </div>
+          )}
 
-        {/* Display either the task input form or the partner task list based on the condition */}
-        {selectedUserId && selectedbutton === "make" && (
-          <div class="make-todo">
-            <div class="make-todo-1">
-              <h2>MAKE YOUR TODO LIST</h2>
-              <h1>Create a new task</h1>
-              <div class="todo-form">
-                <input
-                  type="text"
-                  name="title"
-                  value={taskInput.title}
-                  onChange={handleInputChange}
-                  placeholder="add title"
-                  class="title-field"
-                />
-                <input
-                  type="text"
-                  name="description"
-                  value={taskInput.description}
-                  onChange={handleInputChange}
-                  placeholder="add description"
-                  class="desc-field"
-                />
-                <div>
-                  {/* <select
+          {/* Display either the task input form or the partner task list based on the condition */}
+          {selectedUserId && selectedbutton === "make" && (
+            <div class="make-todo">
+              <div class="make-todo-1">
+                <h2>MAKE YOUR TODO LIST</h2>
+                <h1>Create a new task</h1>
+                <div class="todo-form">
+                  <input
+                    type="text"
+                    name="title"
+                    value={taskInput.title}
+                    onChange={handleInputChange}
+                    placeholder="add title"
+                    class="title-field"
+                  />
+                  <input
+                    type="text"
+                    name="description"
+                    value={taskInput.description}
+                    onChange={handleInputChange}
+                    placeholder="add description"
+                    class="desc-field"
+                  />
+                  <div>
+                    {/* <select
                     name="priority"
                     id="priority"
                     class="pro"
@@ -337,92 +337,92 @@ function Todolist() {
                       Low
                     </option>
                   </select> */}
-                   <input
-                    type="text"
-                    name="priority"
-                    value={taskInput.priority}
-                    onChange={handleInputChange}
-                    placeholder="Priority"
-                    class="pro"
-                  />
-                  <input
-                    type="date"
-                    name="deadline"
-                    value={taskInput.deadline}
-                    onChange={handleInputChange}
-                    placeholder="add date"
-                    class="date-field"
-                  />
-                  <button class="add-task-btn" onClick={handleAddTask}>
-                    Add Task
-                  </button>
-                </div>
-              </div>
-              <h1>All tasks</h1>
-
-              {/* Display tasks */}
-
-              {tasks.map((task, index) => (
-                <div class="task-title-display" key={index}>
-                  <p>{task.title}</p>
-                  <button
-                    class="delete-btn"
-                    onClick={() => handleDeleteTask(index)}
-                  >
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                </div>
-              ))}
-
-              <button class="save-list" onClick={handleSaveTasks}>
-                Save List
-              </button>
-            </div>
-            <div class="make-todo-2">
-              <img className="todo-amigo" src={amigo} alt="" />
-            </div>
-          </div>
-        )}  
-
-        {selectedUserId && selectedbutton === "get" && partnerTaskList && (
-          <div class="make-todo-view">
-            <h1 className="assign-todo">ASSIGNED TASKS</h1>
-            <h3 className="assign-todo2">
-              make sure you complete them before the deadline to earn rewards!
-            </h3>
-            {/* Display partner task list */}
-
-            <div class="tasks">
-              {partnerTaskList.tasks.map((task, index) => (
-                <div class="task" key={index}>
-                  <div class="task-1">
                     <input
-                      type="checkbox"
-                      onChange={() => handleCheckboxChange(task._id)}
-                      disabled={
-                        task.completed || disabledCheckboxes.includes(task._id)
-                      }
+                      type="text"
+                      name="priority"
+                      value={taskInput.priority}
+                      onChange={handleInputChange}
+                      placeholder="Priority"
+                      class="pro"
                     />
-                    <p class="task-title">{task.title}</p>
-                    <p class="task-priority">{task.priority}</p>
-                    <p class="task-date">{task.deadline.substring(0, 10)}</p>
-                  </div>
-                  <div class="task-desc">
-                    <p>{task.description}</p>
+                    <input
+                      type="date"
+                      name="deadline"
+                      value={taskInput.deadline}
+                      onChange={handleInputChange}
+                      placeholder="add date"
+                      class="date-field"
+                    />
+                    <button class="add-task-btn" onClick={handleAddTask}>
+                      Add Task
+                    </button>
                   </div>
                 </div>
-              ))}
-            </div>
-            <div class="score-div">
-              <p class="your-score">YOUR SCORE</p>
-              <div class="score">
-                <p>{partnerTaskList.rewards} ⭐️</p>
+                <h1>All tasks</h1>
+
+                {/* Display tasks */}
+
+                {tasks.map((task, index) => (
+                  <div class="task-title-display" key={index}>
+                    <p>{task.title}</p>
+                    <button
+                      class="delete-btn"
+                      onClick={() => handleDeleteTask(index)}
+                    >
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                ))}
+
+                <button class="save-list" onClick={handleSaveTasks}>
+                  Save List
+                </button>
+              </div>
+              <div class="make-todo-2">
+                <img className="todo-amigo" src={amigo} alt="" />
               </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {selectedUserId && selectedbutton === "get" && partnerTaskList && (
+            <div class="make-todo-view">
+              <h1 className="assign-todo">ASSIGNED TASKS</h1>
+              <h3 className="assign-todo2">
+                make sure you complete them before the deadline to earn rewards!
+              </h3>
+              {/* Display partner task list */}
+
+              <div class="tasks">
+                {partnerTaskList.tasks.map((task, index) => (
+                  <div class="task" key={index}>
+                    <div class="task-1">
+                      <input
+                        type="checkbox"
+                        onChange={() => handleCheckboxChange(task._id)}
+                        disabled={
+                          task.completed || disabledCheckboxes.includes(task._id)
+                        }
+                      />
+                      <p class="task-title">{task.title}</p>
+                      <p class="task-priority">{task.priority}</p>
+                      <p class="task-date">{task.deadline.substring(0, 10)}</p>
+                    </div>
+                    <div class="task-desc">
+                      <p>{task.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div class="score-div">
+                <p class="your-score">YOUR SCORE</p>
+                <div class="score">
+                  <p>{partnerTaskList.rewards} ⭐️</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 }

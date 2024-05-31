@@ -63,7 +63,7 @@ const server = app.listen(port, () =>
 const io = require('socket.io')(server, {
   pingTimeout: 60000,
   cors: {
-    origin: 'https://skillswap-sable.vercel.app/',
+    origin: 'http://localhost:3000',
   },
 });
 

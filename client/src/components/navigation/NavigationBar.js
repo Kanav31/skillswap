@@ -1,38 +1,38 @@
-import React ,{useState,useEffect}from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './NavigationBar.css';
 import skillswapimg from './skillswapimg.png'
 import { useLocation } from 'react-router-dom';
 
 
-function Navbar(){
-    const [isOpen, setIsopen] = useState(false);
-    const [pendingRequests, setPendingRequests] = useState([]);
-    const navigate=useNavigate();
-    // const location=useLocation();
-    // const Token=location.state.props;
-    const userString = localStorage.getItem("userLoginInfo");
-const userLogin = userString ? JSON.parse(userString) : null;
-const Token = userLogin && userLogin.token ? userLogin.token : null; 
+function Navbar() {
+  const [isOpen, setIsopen] = useState(false);
+  const [pendingRequests, setPendingRequests] = useState([]);
+  const navigate = useNavigate();
+  // const location=useLocation();
+  // const Token=location.state.props;
+  const userString = localStorage.getItem("userLoginInfo");
+  const userLogin = userString ? JSON.parse(userString) : null;
+  const Token = userLogin && userLogin.token ? userLogin.token : null;
 
-    const handleMainClick = () => {
-      navigate("/");
+  const handleMainClick = () => {
+    navigate("/");
   };
   const handledashboard = () => {
     navigate("/dashboard");
   };
-  
-const getrequests = async () => {
+
+  const getrequests = async () => {
     try {
       // Make an HTTP GET request to your server
-      const response = await fetch('http://localhost:8000/api/v1/chat-request/getAllRequest', {
+      const response = await fetch('https://skillswap-sable.vercel.app/api/v1/chat-request/getAllRequest', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${Token}`,
           'Content-Type': 'application/json',
         },
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         setPendingRequests(data);
@@ -48,7 +48,7 @@ const getrequests = async () => {
   const acceptRequest = async (requestId) => {
     try {
       // Make an HTTP PATCH request to your server to accept the request
-      const response = await fetch(`http://localhost:8000/api/v1/chat-request/acceptRequest/${requestId}`, {
+      const response = await fetch(`https://skillswap-sable.vercel.app/api/v1/chat-request/acceptRequest/${requestId}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${Token}`,
@@ -71,7 +71,7 @@ const getrequests = async () => {
   const rejectRequest = async (requestId) => {
     try {
       // Make an HTTP PATCH request to your server to accept the request
-      const response = await fetch(`http://localhost:8000/api/v1/chat-request/rejectRequest/${requestId}`, {
+      const response = await fetch(`https://skillswap-sable.vercel.app/api/v1/chat-request/rejectRequest/${requestId}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${Token}`,
@@ -90,11 +90,11 @@ const getrequests = async () => {
       console.error('An error occurred:', error);
     }
   };
-  
+
   // const logout = async () => {
   //   try {
   //     // Make an HTTP POST request to your server to log out
-  //     const response = await fetch('http://localhost:8000/api/v1/auth/logout', {
+  //     const response = await fetch('https://skillswap-sable.vercel.app/api/v1/auth/logout', {
   //       method: 'POST',
   //       headers: {
   //         'Authorization': `Bearer ${Token}`,
@@ -105,7 +105,7 @@ const getrequests = async () => {
   //     if (response.ok) {
   //       // Clear local storage item
   //       localStorage.removeItem('userLoginInfo');
-        
+
   //       // Navigate to the home page or login page
   //       navigate("/");
   //     } else {
@@ -119,7 +119,7 @@ const getrequests = async () => {
     try {
       // Clear local storage item
       localStorage.removeItem('userLoginInfo');
-      
+
       // Navigate to the home page or login page
       navigate("/");
     } catch (error) {
@@ -128,154 +128,154 @@ const getrequests = async () => {
   };
 
 
-    const ToggleSidebar = () => {
-        isOpen === true ? setIsopen(false) : setIsopen(true);
-    }
-    useEffect(() => {
-        getrequests();
-      }, []);
-  
-    return (
-      <div>
+  const ToggleSidebar = () => {
+    isOpen === true ? setIsopen(false) : setIsopen(true);
+  }
+  useEffect(() => {
+    getrequests();
+  }, []);
+
+  return (
+    <div>
 
       <nav class="navbar-main">
-      <div class="navbar-container container-main">
-          
-          
+        <div class="navbar-container container-main">
+
+
           <ul class="menu-items">
             <div className="my-home-dash">
-            <li className="my-home" onClick={handleMainClick}><a>Home</a></li>
-             
-            
-             <li onClick={handledashboard} className="dashdash"><a>Dashboard</a></li>
+              <li className="my-home" onClick={handleMainClick}><a>Home</a></li>
+
+
+              <li onClick={handledashboard} className="dashdash"><a>Dashboard</a></li>
             </div>
-             
+
             <li><a href="#"><button onClick={logout} className="my-logout-dash"><span class="text">Logout</span></button></a></li>
-            <li>        
+            <li>
               <div className="navbutton1 btn btn-primary" onClick={ToggleSidebar} >
                 <i className="fa fa-bars"></i>
               </div>
-           </li>
+            </li>
           </ul>
-          <h1 class="logo" onClick={handleMainClick}><img className="skill-swap-logo" src={skillswapimg} alt=""/></h1>
-          
-      </div>
-  </nav>
+          <h1 class="logo" onClick={handleMainClick}><img className="skill-swap-logo" src={skillswapimg} alt="" /></h1>
 
-  <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
-                        <div className="sd-header">
-                            <h4 className="mb-0">Pending Requests</h4>
-                            <div className="btn btn-primary" onClick={ToggleSidebar}><i className="fa fa-times"></i></div>
-                        </div>
-                        <div className="sd-body">
-                            <ul>
-                            {pendingRequests.map(request => (
-                                <li key={request._id}>
-                                <div className="sd-link">
-                                    {/* <div class="invitation"> */}
-                                    <div className="myflexclass">
-                                            <div class="unsplashc-gmwfhbdzk-parent">
-                                            <img
-                                                class="unsplashc-gmwfhbdzk-icon"
-                                                alt=""
-                                                src={request.sender.userProfile.pic}
-                                            />
+        </div>
+      </nav>
 
-                                            <div class="roger-bailey-parent">
-                                                <div class="myroger-bailey">{request.sender.name}</div>
-                                                {/* <div class="web-developer">{request.sender.email}</div> */}
-                                            </div>
-                                            </div>
-                                            <div class="frame-parent">
-                                            <div class="ignore-wrapper" onClick={()=>rejectRequest(request._id)}>
-                                                <div class="roger-bailey">Ignore</div>
-                                            </div>
-                                            <div class="accept-wrapper" onClick={()=>acceptRequest(request._id)}>
-                                                <div class="roger-bailey">Accept</div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                {/* </div> */}
-                                </div>
-                            </li>
-                               
-                                ))}
-                            </ul>
-                        </div>
+      <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
+        <div className="sd-header">
+          <h4 className="mb-0">Pending Requests</h4>
+          <div className="btn btn-primary" onClick={ToggleSidebar}><i className="fa fa-times"></i></div>
+        </div>
+        <div className="sd-body">
+          <ul>
+            {pendingRequests.map(request => (
+              <li key={request._id}>
+                <div className="sd-link">
+                  {/* <div class="invitation"> */}
+                  <div className="myflexclass">
+                    <div class="unsplashc-gmwfhbdzk-parent">
+                      <img
+                        class="unsplashc-gmwfhbdzk-icon"
+                        alt=""
+                        src={request.sender.userProfile.pic}
+                      />
+
+                      <div class="roger-bailey-parent">
+                        <div class="myroger-bailey">{request.sender.name}</div>
+                        {/* <div class="web-developer">{request.sender.email}</div> */}
+                      </div>
                     </div>
-                    <div className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`} onClick={ToggleSidebar}></div>
-      
-  
+                    <div class="frame-parent">
+                      <div class="ignore-wrapper" onClick={() => rejectRequest(request._id)}>
+                        <div class="roger-bailey">Ignore</div>
+                      </div>
+                      <div class="accept-wrapper" onClick={() => acceptRequest(request._id)}>
+                        <div class="roger-bailey">Accept</div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* </div> */}
+                </div>
+              </li>
+
+            ))}
+          </ul>
+        </div>
       </div>
-      //   <div class="navbar1">
-      //   <div class="navholder1"></div>
+      <div className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`} onClick={ToggleSidebar}></div>
 
-      //     <div className="navbutton1 btn btn-primary" onClick={ToggleSidebar} >
-      //           <i className="fa fa-bars"></i>
-        
-      //   </div>
-      //   <div class="navitems1">
-      //     {/* <div className="cm" onClick={()=>{navigate('/confirmedmatches')}}>CM</div>
-      //     <div className="todo" onClick={()=>{navigate('/todo')}}>TODO</div>
-      //     <div className="QA">Q&A</div> */}
-      //     <div class="home1">Home</div>
-      //     <div className="dashboard-link">Dashboard</div>
-      //     {/* <div class="about-us1">About Us</div>
-      //     <div class="contact-us1">Contact Us</div> */}
-      //     {/* <div class="contact-us2" onClick={handlematch}>Match Me</div>
-      //     <div class="contact-us3" onClick={getrequests}>P</div> */}
-      //     <button className="logout" onClick={logout}>Logout</button>
-          
-      //   </div>
-      //   <div onClick={handleMainClick}>
-          
-      //       <img className="whatsapp-image-2023-10-30-at-6-icon" alt="" src={skillswapimg}/>
-           
-      //   </div>
 
-      //   <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
-      //                   <div className="sd-header">
-      //                       <h4 className="mb-0">Pending Requests</h4>
-      //                       <div className="btn btn-primary" onClick={ToggleSidebar}><i className="fa fa-times"></i></div>
-      //                   </div>
-      //                   <div className="sd-body">
-      //                       <ul>
-      //                       {pendingRequests.map(request => (
-      //                           <li key={request._id}>
-      //                           <div className="sd-link">
-      //                               {/* <div class="invitation"> */}
-      //                               <div className="myflexclass">
-      //                                       <div class="unsplashc-gmwfhbdzk-parent">
-      //                                       {/* <img
-      //                                           class="unsplashc-gmwfhbdzk-icon"
-      //                                           alt=""
-      //                                           src="./public/unsplashc-gmwfhbdzk@2x.png"
-      //                                       /> */}
+    </div>
+    //   <div class="navbar1">
+    //   <div class="navholder1"></div>
 
-      //                                       <div class="roger-bailey-parent">
-      //                                           <div class="myroger-bailey">{request.sender.name}</div>
-      //                                           <div class="web-developer">Web Developer</div>
-      //                                       </div>
-      //                                       </div>
-      //                                       <div class="frame-parent">
-      //                                       <div class="ignore-wrapper" onClick={()=>rejectRequest(request._id)}>
-      //                                           <div class="roger-bailey">Ignore</div>
-      //                                       </div>
-      //                                       <div class="accept-wrapper" onClick={()=>acceptRequest(request._id)}>
-      //                                           <div class="roger-bailey">Accept</div>
-      //                                       </div>
-      //                                       </div>
-      //                                   </div>
-      //                           {/* </div> */}
-      //                           </div>
-      //                       </li>
-                               
-      //                           ))}
-      //                       </ul>
-      //                   </div>
-      //               </div>
-      //               <div className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`} onClick={ToggleSidebar}></div>
-      // </div>
-    )
+    //     <div className="navbutton1 btn btn-primary" onClick={ToggleSidebar} >
+    //           <i className="fa fa-bars"></i>
+
+    //   </div>
+    //   <div class="navitems1">
+    //     {/* <div className="cm" onClick={()=>{navigate('/confirmedmatches')}}>CM</div>
+    //     <div className="todo" onClick={()=>{navigate('/todo')}}>TODO</div>
+    //     <div className="QA">Q&A</div> */}
+    //     <div class="home1">Home</div>
+    //     <div className="dashboard-link">Dashboard</div>
+    //     {/* <div class="about-us1">About Us</div>
+    //     <div class="contact-us1">Contact Us</div> */}
+    //     {/* <div class="contact-us2" onClick={handlematch}>Match Me</div>
+    //     <div class="contact-us3" onClick={getrequests}>P</div> */}
+    //     <button className="logout" onClick={logout}>Logout</button>
+
+    //   </div>
+    //   <div onClick={handleMainClick}>
+
+    //       <img className="whatsapp-image-2023-10-30-at-6-icon" alt="" src={skillswapimg}/>
+
+    //   </div>
+
+    //   <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
+    //                   <div className="sd-header">
+    //                       <h4 className="mb-0">Pending Requests</h4>
+    //                       <div className="btn btn-primary" onClick={ToggleSidebar}><i className="fa fa-times"></i></div>
+    //                   </div>
+    //                   <div className="sd-body">
+    //                       <ul>
+    //                       {pendingRequests.map(request => (
+    //                           <li key={request._id}>
+    //                           <div className="sd-link">
+    //                               {/* <div class="invitation"> */}
+    //                               <div className="myflexclass">
+    //                                       <div class="unsplashc-gmwfhbdzk-parent">
+    //                                       {/* <img
+    //                                           class="unsplashc-gmwfhbdzk-icon"
+    //                                           alt=""
+    //                                           src="./public/unsplashc-gmwfhbdzk@2x.png"
+    //                                       /> */}
+
+    //                                       <div class="roger-bailey-parent">
+    //                                           <div class="myroger-bailey">{request.sender.name}</div>
+    //                                           <div class="web-developer">Web Developer</div>
+    //                                       </div>
+    //                                       </div>
+    //                                       <div class="frame-parent">
+    //                                       <div class="ignore-wrapper" onClick={()=>rejectRequest(request._id)}>
+    //                                           <div class="roger-bailey">Ignore</div>
+    //                                       </div>
+    //                                       <div class="accept-wrapper" onClick={()=>acceptRequest(request._id)}>
+    //                                           <div class="roger-bailey">Accept</div>
+    //                                       </div>
+    //                                       </div>
+    //                                   </div>
+    //                           {/* </div> */}
+    //                           </div>
+    //                       </li>
+
+    //                           ))}
+    //                       </ul>
+    //                   </div>
+    //               </div>
+    //               <div className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`} onClick={ToggleSidebar}></div>
+    // </div>
+  )
 }
 export default Navbar;

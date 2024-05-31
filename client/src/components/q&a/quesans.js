@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./quesans.css"; // Import your CSS file
 
 
@@ -8,16 +8,16 @@ function QuesAns() {
   const [qaData, setQaData] = useState([]);
   const [answerContentMap, setAnswerContentMap] = useState({});
   const userString = localStorage.getItem("userLoginInfo");
- const userLogin = userString ? JSON.parse(userString) : null;
- const Token = userLogin && userLogin.token ? userLogin.token : null; 
- const userId = userLogin && userLogin.user ? userLogin.user._id : null;  //logged in user ki Id
+  const userLogin = userString ? JSON.parse(userString) : null;
+  const Token = userLogin && userLogin.token ? userLogin.token : null;
+  const userId = userLogin && userLogin.user ? userLogin.user._id : null;  //logged in user ki Id
 
   const handlePostQuestion = async (e) => {
-    
+
     e.preventDefault(); // Prevent the default form submission behavior
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/Q&A/questions", {
+      const response = await fetch("https://skillswap-sable.vercel.app/api/v1/Q&A/questions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function QuesAns() {
 
   const getAllQuestionsAndAnswers = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/v1/Q&A/questions", {
+      const response = await fetch("https://skillswap-sable.vercel.app/api/v1/Q&A/questions", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${Token}`, // Replace with your actual access token
@@ -77,14 +77,14 @@ function QuesAns() {
     console.log(questionId);
     console.log(answerContentMap[questionId]);
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/Q&A/questions/${questionId}/answers`, {
+      const response = await fetch(`https://skillswap-sable.vercel.app/api/v1/Q&A/questions/${questionId}/answers`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${Token}`, // Replace with your actual access token
         },
         body: JSON.stringify({
-          user:userId,
+          user: userId,
           content: answerContentMap[questionId],
         }),
       });
@@ -104,36 +104,36 @@ function QuesAns() {
       console.error("An error occurred:", error);
     }
   };
-  
+
   return (
-    
-<div>
-    <div className="question-form-container">
-      <form className="question-form" onSubmit={handlePostQuestion}>
-        <label className="qlabel" htmlFor="title">Title:</label>
-        <input
-        className="qinput"
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
 
-        <label className="qlabel" htmlFor="content">Content:</label>
-        <input
-        className="qinput"
-          id="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+    <div>
+      <div className="question-form-container">
+        <form className="question-form" onSubmit={handlePostQuestion}>
+          <label className="qlabel" htmlFor="title">Title:</label>
+          <input
+            className="qinput"
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        <button className="qbutton" type="submit">Post</button>
-      </form>
-    </div>
-    <div className="qanda">
+          <label className="qlabel" htmlFor="content">Content:</label>
+          <input
+            className="qinput"
+            id="content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+
+          <button className="qbutton" type="submit">Post</button>
+        </form>
+      </div>
+      <div className="qanda">
         <h1>ALL QUESTIONS AND ANSWERS</h1>
 
-        
+
 
         {qaData.map((qaItem) => (
           <div key={qaItem._id} className="qabox">
@@ -160,20 +160,20 @@ function QuesAns() {
             >
               Post Answer
             </button>
-           
+
 
             {/* Display answers */}
-      <div>
-        <strong>Existing Answers:</strong>
-        {qaItem.answers.map((answer) => (
-          <div key={answer._id}>
-           <h1> {answer.content} "by" {answer.user.name}</h1>
-           {/* <h1> {answer.user.name}</h1> */}
+            <div>
+              <strong>Existing Answers:</strong>
+              {qaItem.answers.map((answer) => (
+                <div key={answer._id}>
+                  <h1> {answer.content} "by" {answer.user.name}</h1>
+                  {/* <h1> {answer.user.name}</h1> */}
+                </div>
+                // <p>{answer.user.name}</p>
+              ))}
             </div>
-          // <p>{answer.user.name}</p>
-        ))}
-      </div>
-           
+
           </div>
         ))}
 
@@ -181,12 +181,12 @@ function QuesAns() {
 
 
 
-      
-        
 
-    </div> 
+
+
+      </div>
     </div>
-   
+
   );
 }
 
