@@ -41,7 +41,7 @@ app.use(cors(corsOptions));
 // Middleware
 app.use(express.static('./public'));
 app.use(express.json({ limit: '50mb' }));
-
+app.get("/", (req, res) => res.send("Express on Vercel"));
 // Routes
 app.use('/api/v1/auth', mainRouter);
 app.use('/api/v1/profile', autheticateUser, profileRouter);
@@ -57,6 +57,7 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 8000;
+
 const server = app.listen(port, () =>
   console.log(`Server is listening on port ${port}...`)
 );
