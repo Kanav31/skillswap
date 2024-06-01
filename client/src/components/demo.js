@@ -113,7 +113,7 @@ function Userinfo() {
           // You can add other properties if needed
         };
         // Make an HTTP POST request to your server
-        const response = await fetch('https://skillswap-sable.vercel.app/api/v1/profile', {
+        const response = await fetch('http://localhost:8000/api/v1/profile', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${Token}`,

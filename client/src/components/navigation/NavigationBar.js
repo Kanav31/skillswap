@@ -25,7 +25,7 @@ function Navbar() {
   const getrequests = async () => {
     try {
       // Make an HTTP GET request to your server
-      const response = await fetch('https://skillswap-sable.vercel.app/api/v1/chat-request/getAllRequest', {
+      const response = await fetch('http://localhost:8000/api/v1/chat-request/getAllRequest', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${Token}`,
@@ -48,7 +48,7 @@ function Navbar() {
   const acceptRequest = async (requestId) => {
     try {
       // Make an HTTP PATCH request to your server to accept the request
-      const response = await fetch(`https://skillswap-sable.vercel.app/api/v1/chat-request/acceptRequest/${requestId}`, {
+      const response = await fetch(`http://localhost:8000/api/v1/chat-request/acceptRequest/${requestId}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${Token}`,
@@ -71,7 +71,7 @@ function Navbar() {
   const rejectRequest = async (requestId) => {
     try {
       // Make an HTTP PATCH request to your server to accept the request
-      const response = await fetch(`https://skillswap-sable.vercel.app/api/v1/chat-request/rejectRequest/${requestId}`, {
+      const response = await fetch(`http://localhost:8000/api/v1/chat-request/rejectRequest/${requestId}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${Token}`,
@@ -94,7 +94,7 @@ function Navbar() {
   // const logout = async () => {
   //   try {
   //     // Make an HTTP POST request to your server to log out
-  //     const response = await fetch('https://skillswap-sable.vercel.app/api/v1/auth/logout', {
+  //     const response = await fetch('http://localhost:8000/api/v1/auth/logout', {
   //       method: 'POST',
   //       headers: {
   //         'Authorization': `Bearer ${Token}`,

@@ -36,7 +36,7 @@ function Login() {
     // console.log('Form data:', formData);  i did breach ke liye
 
     // Add further login logic here
-    fetch("https://skillswap-sable.vercel.app/api/v1/auth/login", {
+    fetch("http://localhost:8000/api/v1/auth/login", {
       method: "POST",
       crossDomain: true,
       headers: {

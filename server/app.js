@@ -150,9 +150,9 @@ const matchingRoute = require('./routes/matchingAlgorithm');
 
 // CORS Configuration
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://skillswap-frontend.vercel.app'],
+  origin: ['http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  exposedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
@@ -183,7 +183,7 @@ const server = app.listen(port, () =>
 const io = require('socket.io')(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ['http://localhost:3000', 'https://skillswap-frontend.vercel.app']
+    origin: ['http://localhost:3000']
   }
 });
 
