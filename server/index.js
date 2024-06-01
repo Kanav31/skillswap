@@ -31,7 +31,7 @@ const matchingRoute = require('./routes/matchingAlgorithm');
 
 // CORS Configuration
 const corsOptions = {
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000', 'https://skillswap-nine.vercel.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   exposedHeaders: ['Content-Type', 'Authorization']
 };
@@ -65,7 +65,7 @@ const server = app.listen(port, () =>
 const io = require('socket.io')(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ['http://localhost:3000']
+    origin: ['http://localhost:3000', 'https://skillswap-nine.vercel.app/']
   }
 });
 
