@@ -2,90 +2,18 @@
     "version": 2,
     "builds": [
         {
-            "src": "./routes/main.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/userProfile.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/matchingAlgorithm.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/notification.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/chatRequest.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/chatService.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/messageRoute.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/tasklistRoutes.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./routes/Q&ARoute.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "./controllers/(.*)",
+            "src": "./index.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/api/v1/auth/register",
-            "dest": "./routes/main.js"
-        },
-        {
-            "src": "/api/v1/auth/(.*)",
-            "dest": "./routes/main.js"
-        },
-        {
-            "src": "/api/v1/profile/(.*)",
-            "dest": "./routes/userProfile.js"
-        },
-        {
-            "src": "/api/v1/matching/(.*)",
-            "dest": "./routes/matchingAlgorithm.js"
-        },
-        {
-            "src": "/api/v1/send/(.*)",
-            "dest": "./routes/notification.js"
-        },
-        {
-            "src": "/api/v1/chat-request/(.*)",
-            "dest": "./routes/chatRequest.js"
-        },
-        {
-            "src": "/api/v1/chat/(.*)",
-            "dest": "./routes/chatService.js"
-        },
-        {
-            "src": "/api/v1/message/(.*)",
-            "dest": "./routes/messageRoute.js"
-        },
-        {
-            "src": "/api/v1/tasklist-related/(.*)",
-            "dest": "./routes/tasklistRoutes.js"
-        },
-        {
-            "src": "/api/v1/Q&A/(.*)",
-            "dest": "./routes/Q&ARoute.js"
+            "src": "/api/v1/(.*)",
+            "dest": "/index.js"
         },
         {
             "src": "/controllers/(.*)",
-            "dest": "./controllers/$1"
+            "dest": "/controllers/$1"
         }
     ]
 }
